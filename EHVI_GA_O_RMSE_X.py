@@ -27,8 +27,8 @@ st.title("Slurry 조성 최적화: qEHVI 기반 3목적 Bayesian Optimization")
 CSV_PATH = "Slurry_data_LHS.csv"
 df = pd.read_csv(CSV_PATH)
 
-x_cols = ["Graphite", "Carbon black", "CMC", "SBR", "Solvent"]  # 대괄호 두번써야 여러 열 한꺼번에 가져옴
-y_cols = ["yield stress", "n", "K", "viscosity"]
+x_cols = ["Graphite", "Carbon\nblack", "CMC", "SBR", "Solvent"]
+y_cols = ["Yield stress", "n", "K", "Viscosity"]
 
 # JK
 # url = "https://raw.githubusercontent.com/Yerimdw/2504_slurry/refs/heads/main/LHS_slurry_data_st.csv"
@@ -191,7 +191,7 @@ candidate_wt = candidate_wt / np.sum(candidate_wt) * 100
 st.subheader("qEHVI를 통한 최적화 조성 추천")
 table_composition = pd.DataFrame({
     "Graphite": [f"{candidate_wt[x_cols.index('Graphite')]:.2f} wt%"],
-    "Carbon black": [f"{candidate_wt[x_cols.index('Carbon black')]:.2f} wt%"],
+    "Carbon\nblack": [f"{candidate_wt[x_cols.index('Carbon\nblack')]:.2f} wt%"],
     "CMC": [f"{candidate_wt[x_cols.index('CMC')]:.2f} wt%"],
     "SBR": [f"{candidate_wt[x_cols.index('SBR')]:.2f} wt%"],
     "Solvent": [f"{candidate_wt[x_cols.index('Solvent')]:.2f} wt%"]
